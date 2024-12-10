@@ -21,11 +21,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['fileToUpload'])) {
 
     if ($file_error === UPLOAD_ERR_OK) {
         $file_ext = pathinfo($file_name, PATHINFO_EXTENSION);
-        $allowed_exts = ['jpg', 'png', 'pdf', 'docx', 'txt'];
+        $allowed_exts = ['jpg', 'png', 'pdf', 'docx', 'txt','php','html','css','js','py','java','c','cpp','go','rust','swift','kotlin','dart','sql','xml','yaml','json','csv','tsv','xlsx','xls','ods','odt','odp','odg','odf','odc','odb','ods','odt','odp','odg','odf','odc','odb','pptx'];
 
         if (in_array(strtolower($file_ext), $allowed_exts)) {
-            $new_file_name = uniqid('', true) . '.' . $file_ext;
-            $target_file = $upload_dir . $new_file_name;
+            $target_file = $upload_dir . $file_name;
 
             if (move_uploaded_file($file_tmp, $target_file)) {
                 echo "<script>alert('File uploaded successfully!');</script>";
@@ -33,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['fileToUpload'])) {
                 echo "<script>alert('Error uploading file.');</script>";
             }
         } else {
-            echo "<script>alert('Invalid file type. Allowed: jpg, png, pdf, docx, txt.');</script>";
+            echo "<script>alert('Invalid file type. Allowed: $allowed_exts.');</script>";
         }
     } else {
         echo "<script>alert('Error in file upload. Please try again.');</script>";
@@ -175,7 +174,7 @@ if (isset($_GET['delete'])) {
 <body>
     <nav>
         <div>
-            <a href="index.php">Home</a>
+            <a href="index.html">Home</a>
             <a href="logout.php">Logout</a>
         </div>
         <div class="user-status">Signed in as: <?php echo htmlspecialchars($username); ?></div>
