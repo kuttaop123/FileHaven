@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            background-color: #0093E9;
             margin: 0;
             padding: 0;
         }
@@ -51,8 +51,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             margin: 50px auto;
             padding: 30px;
             background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 5px;
+            border-radius: 10px;
+            box-shadow: 0 0 50px 15px #04BADE;
+            border:0.5px solid black;
         }
 
         .form-container h2 {
@@ -125,7 +126,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
 <nav>
-        <a href="index.php">Home</a>
+        <a href="index.html">Home</a>
         <a href="login.php">Login</a>
         <a href="signup.php">Sign Up</a>
     </nav>
