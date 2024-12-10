@@ -196,10 +196,10 @@ if (isset($_GET['delete'])) {
             if (!empty($files)) {
                 foreach ($files as $file) {
                     $file_path = $upload_dir . $file;
-                    $file_size = round(filesize($file_path) / 1024, 2); 
+                    $file_size = round(filesize($file_path) / (1024*1024), 2); 
                     echo "<div class='file-item'>
                         <p><strong>$file</strong></p>
-                        <p>Size: {$file_size} KB</p>
+                        <p>Size: {$file_size} MB</p>
                         <div class='actions'>
                             <a href='$file_path' download>Download</a>
                             <a href='upload.php?delete=$file' onclick='return confirm(\"Are you sure you want to delete this file?\")'>Delete</a>
